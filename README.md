@@ -133,19 +133,5 @@ Special-purpose sorts:
 All content is licensed under the terms of the MIT open source license.
 
 ### Contributors
-* [Andy Bowes](https://github.com/AndyBowes)
-* [Niccolò Passolunghi](https://github.com/nicopasso)
-* [Vansh Gandhi](https://github.com/vanshg)
-* [Szabolcs Besenyei](https://github.com/besza)
-* [Markus Kramer](https://github.com/MarkusKramer)
-* [Luís Soares](https://github.com/lsoares)
-
-
-### Contact
-
-* Sebastian Gazolla Jr
-* [@gazollajr](http://twitter.com/gazollajr)
-* [http://gazapps.com](http://gazapps.com)
-* [http://about.me/gazolla](http://about.me/gazolla)
-
+Here is the [list of contributors](https://github.com/gazolla/Kotlin-Algorithm?tab=readme-ov-file#contributors) from the original repo
 
