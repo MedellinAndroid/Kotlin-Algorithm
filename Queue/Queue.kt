@@ -1,6 +1,28 @@
 /**
  * Created by gazollajunior on 05/04/16.
  */
+fun main() {
+    val initialValue = mutableListOf(10)
+    val queue = Queue(initialValue)
+
+    println(queue)
+    queue.enqueue(22)
+    println(queue)
+    queue.enqueue(55)
+    println(queue)
+    queue.enqueue(77)
+    println(queue)
+    queue.dequeue()
+    println(queue)
+    queue.dequeue()
+    println(queue)
+    queue.dequeue()
+    println(queue)
+
+    // Iterating over queue
+    for (item in queue) println("Item in queue : $item")
+}
+
 class Queue<T>(list: MutableList<T>) : Iterator<T> {
 
     var itCounter: Int = 0
@@ -18,10 +40,10 @@ class Queue<T>(list: MutableList<T>) : Iterator<T> {
     }
 
     fun dequeue(): T? {
-        if (this.isEmpty()) {
-            return null
+        return if (this.isEmpty()) {
+            null
         } else {
-            return this.items.removeAt(0)
+            this.items.removeAt(0)
         }
     }
 
@@ -47,26 +69,4 @@ class Queue<T>(list: MutableList<T>) : Iterator<T> {
             throw NoSuchElementException("No such element")
         }
     }
-}
-
-fun main() {
-    var initialValue = mutableListOf<Int>(10)
-    var queue = Queue<Int>(initialValue)
-
-    println(queue)
-    queue.enqueue(22)
-    println(queue)
-    queue.enqueue(55)
-    println(queue)
-    queue.enqueue(77)
-    println(queue)
-    queue.dequeue()
-    println(queue)
-    queue.dequeue()
-    println(queue)
-    queue.dequeue()
-    println(queue)
-
-    // Iterating over queue
-    for (item in queue) println("Item in queue : " + item)
 }

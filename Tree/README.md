@@ -6,7 +6,7 @@ A tree data structure can be defined recursively (locally) as a collection of no
 
 Source: [Wikipedia page for Tree](https://en.wikipedia.org/wiki/Tree_(data_structure))
 
-Kotlin playground [link](https://pl.kotl.in/EenoWgpKx)
+Kotlin playground [link](https://pl.kotl.in/mmbFVhqk6)
 
 
 ## Code
@@ -26,8 +26,8 @@ class TreeNode<T>(value: T) {
     }
 
     override fun toString(): String {
-        var s = "${value}"
-        if (!children.isEmpty()) {
+        var s = "$value"
+        if (children.isNotEmpty()) {
             s += " {" + children.map { it.toString() } + " }"
         }
         return s

@@ -1,3 +1,11 @@
+fun main() {
+    println("\nOriginal list:")
+    val mutableListOfInt = mutableListOf(10, 4, 5, 2, 1, 3, 6, 9, 8, 7)
+    println(mutableListOfInt)
+    println("\nOrdered list:")
+    print(mutableListOfInt.shellSort().toString())
+}
+
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
     val tmp = this[index1]
     this[index1] = this[index2]
@@ -33,12 +41,4 @@ fun MutableList<Int>.shellSort(): MutableList<Int> {
     }
 
     return this
-}
-
-fun main() {
-    println("\nOriginal list:")
-    var mutableListOfInt = mutableListOf(10, 4, 5, 2, 1, 3, 6, 9, 8, 7)
-    println(mutableListOfInt)
-    println("\nOrdered list:")
-    print(mutableListOfInt.shellSort().toString())
 }

@@ -1,47 +1,25 @@
 /**
  * Created by gazolla on 10/04/16.
  */
-class TreeNode<T>(value: T) {
-    var value: T = value
-
-    var parent: TreeNode<T>? = null
-
-    var children: MutableList<TreeNode<T>> = mutableListOf()
-
-    fun addChild(node: TreeNode<T>) {
-        children.add(node)
-        node.parent = this
-    }
-
-    override fun toString(): String {
-        var s = "${value}"
-        if (!children.isEmpty()) {
-            s += " {" + children.map { it.toString() } + " }"
-        }
-        return s
-    }
-}
-
 fun main() {
+    val tree = TreeNode("beverages")
 
-    val tree = TreeNode<String>("beverages")
+    val hotNode = TreeNode("hot")
+    val coldNode = TreeNode("cold")
 
-    val hotNode = TreeNode<String>("hot")
-    val coldNode = TreeNode<String>("cold")
+    val teaNode = TreeNode("tea")
+    val coffeeNode = TreeNode("coffee")
+    val chocolateNode = TreeNode("cocoa")
 
-    val teaNode = TreeNode<String>("tea")
-    val coffeeNode = TreeNode<String>("coffee")
-    val chocolateNode = TreeNode<String>("cocoa")
+    val blackTeaNode = TreeNode("black")
+    val greenTeaNode = TreeNode("green")
+    val chaiTeaNode = TreeNode("chai")
 
-    val blackTeaNode = TreeNode<String>("black")
-    val greenTeaNode = TreeNode<String>("green")
-    val chaiTeaNode = TreeNode<String>("chai")
+    val sodaNode = TreeNode("soda")
+    val milkNode = TreeNode("milk")
 
-    val sodaNode = TreeNode<String>("soda")
-    val milkNode = TreeNode<String>("milk")
-
-    val gingerAleNode = TreeNode<String>("ginger ale")
-    val bitterLemonNode = TreeNode<String>("bitter lemon")
+    val gingerAleNode = TreeNode("ginger ale")
+    val bitterLemonNode = TreeNode("bitter lemon")
 
     tree.addChild(hotNode)
     tree.addChild(coldNode)
@@ -61,4 +39,25 @@ fun main() {
     sodaNode.addChild(bitterLemonNode)
 
     println(tree)
+}
+
+class TreeNode<T>(value: T) {
+    var value: T = value
+
+    var parent: TreeNode<T>? = null
+
+    var children: MutableList<TreeNode<T>> = mutableListOf()
+
+    fun addChild(node: TreeNode<T>) {
+        children.add(node)
+        node.parent = this
+    }
+
+    override fun toString(): String {
+        var s = "$value"
+        if (children.isNotEmpty()) {
+            s += " {" + children.map { it.toString() } + " }"
+        }
+        return s
+    }
 }

@@ -1,6 +1,14 @@
 /**
  * Created by gazollajunior on 09/04/16.
  */
+fun main() {
+    println("\nOriginal list:")
+    val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
+    println(names)
+    println("\nOrdered list:")
+    val ordered = selectionSort(names)
+    println(ordered)
+}
 
 fun <T : Comparable<T>> selectionSort(items: MutableList<T>): MutableList<T> {
     if (items.isEmpty()) {
@@ -17,13 +25,4 @@ fun <T : Comparable<T>> selectionSort(items: MutableList<T>): MutableList<T> {
         }
     }
     return items
-}
-
-fun main() {
-    println("\nOriginal list:")
-    val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
-    println(names)
-    println("\nOrdered list:")
-    var ordered = selectionSort(names)
-    println(ordered)
 }

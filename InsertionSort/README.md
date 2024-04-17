@@ -8,7 +8,7 @@ Insertion sort is a simple sorting algorithm that builds the final sorted array 
 
 Source: [Wikipedia page for Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
-Kotlin playground [link](https://pl.kotl.in/8ZMhBw7Wy)
+Kotlin playground [link](https://pl.kotl.in/CxN8B7rlg)
 
 ## Code
 
@@ -17,7 +17,8 @@ fun <T : Comparable<T>> insertionSort(items: MutableList<T>): List<T> {
     if (items.isEmpty()) {
         return items
     }
-    for (count in 1..items.count() - 1) {
+
+    for (count in 1..<items.count()) {
         val item = items[count]
         var i = count
         while (i > 0 && item < items[i - 1]) {

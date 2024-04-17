@@ -1,5 +1,3 @@
-package deque
-
 /**
  * Implementation of the Deque functionality which provides a double ended queue.
  *

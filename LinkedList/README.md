@@ -4,13 +4,12 @@ A linked list is a linear collection of data elements, called nodes pointing to 
 
 Source: [Wikipedia page for Linked List](https://en.wikipedia.org/wiki/Linked_list)
 
-Kotlin playground [link](https://pl.kotl.in/BGX6vUiL5)
+Kotlin playground [link](https://pl.kotl.in/Y3EVqGfVM)
 
 ## The Node
 
 ```kotlin
-class Node<T>(value: T) {
-    var value: T = value
+class Node<T>(var value: T) {
     var next: Node<T>? = null
     var previous: Node<T>? = null
 }
@@ -20,7 +19,6 @@ class Node<T>(value: T) {
 
 ```kotlin
 class LinkedList<T> {
-
     private var head: Node<T>? = null
 
     var isEmpty: Boolean = head == null
@@ -29,27 +27,27 @@ class LinkedList<T> {
 
     fun last(): Node<T>? {
         var node = head
-        if (node != null) {
+        return if (node != null) {
             while (node?.next != null) {
-                node = node?.next
+                node = node.next
             }
-            return node
+            node
         } else {
-            return null
+            null
         }
     }
 
     fun count(): Int {
         var node = head
-        if (node != null) {
+        return if (node != null) {
             var counter = 1
             while (node?.next != null) {
-                node = node?.next
+                node = node.next
                 counter += 1
             }
-            return counter
+            counter
         } else {
-            return 0
+            0
         }
     }
 
@@ -67,9 +65,9 @@ class LinkedList<T> {
     }
 
     fun append(value: T) {
-        var newNode = Node(value)
+        val newNode = Node(value)
+        val lastNode = this.last()
 
-        var lastNode = this.last()
         if (lastNode != null) {
             newNode.previous = lastNode
             lastNode.next = newNode
@@ -101,25 +99,28 @@ class LinkedList<T> {
 
     fun removeLast(): T? {
         val last = this.last()
-        if (last != null) {
-            return removeNode(last)
+
+        return if (last != null) {
+            removeNode(last)
         } else {
-            return null
+            null
         }
     }
 
     fun removeAtIndex(index: Int): T? {
         val node = nodeAtIndex(index)
-        if (node != null) {
-            return removeNode(node)
+
+        return if (node != null) {
+            removeNode(node)
         } else {
-            return null
+            null
         }
     }
 
     override fun toString(): String {
         var s = "["
         var node = head
+
         while (node != null) {
             s += "${node.value}"
             node = node.next

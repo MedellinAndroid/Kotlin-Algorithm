@@ -6,7 +6,7 @@ package compression
  */
 
 tailrec fun runLengthEncoding(text: String, prev: String = ""): String {
-    if (text.length == 0) {
+    if (text.isEmpty()) {
         return prev
     }
     val initialChar = text.get(0)

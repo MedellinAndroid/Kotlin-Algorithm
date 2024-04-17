@@ -24,13 +24,9 @@ class AdjacencyList<T : Comparable<T>> : Graphable<T> {
     }
 
     override fun add(type: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double?) = when (type) {
-        is Directed -> {
-            addDirectedEdge(source, destination, weight)
-        }
-
-        is Undirected -> {
-            addUndirectedEdge(Pair(source, destination), weight)
-        }
+        is Directed -> addDirectedEdge(source, destination, weight)
+        is Undirected -> addUndirectedEdge(Pair(source, destination), weight)
+        else -> {}
     }
 
     override fun weight(source: Vertex<T>, destination: Vertex<T>): Double? {
@@ -52,10 +48,10 @@ class AdjacencyList<T : Comparable<T>> : Graphable<T> {
         for ((vertex, edges) in adjacencyMap) {
             var edgeString = ""
             for ((index, edge) in edges.withIndex()) {
-                if (index != edges.count() - 1) {
-                    edgeString += "${edge.destination}, "
+                edgeString += if (index != edges.count() - 1) {
+                    "${edge.destination}, "
                 } else {
-                    edgeString += "${edge.destination}"
+                    "${edge.destination}"
                 }
             }
             result += "$vertex ---> [ $edgeString ] \n"

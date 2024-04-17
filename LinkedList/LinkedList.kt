@@ -2,14 +2,40 @@
  * Created by gazollajunior on 07/04/16.
  */
 
-class Node<T>(value: T) {
-    var value: T = value
+fun main() {
+    val ll = LinkedList<String>()
+
+    ll.append("John")
+    println(ll)
+    ll.append("Carl")
+    println(ll)
+    ll.append("Zack")
+    println(ll)
+    ll.append("Tim")
+    println(ll)
+    ll.append("Steve")
+    println(ll)
+    ll.append("Peter")
+    println(ll)
+
+    print("\n\n")
+
+    println("first item: ${ll.first()?.value}")
+    println("last item: ${ll.last()?.value}")
+    println("second item: ${ll.first()?.next?.value}")
+    println("penultimate item: ${ll.last()?.previous?.value}")
+
+    println("\n4th item: ${ll.nodeAtIndex(3)?.value}")
+
+    println("\nthe list has ${ll.count()} items")
+}
+
+class Node<T>(var value: T) {
     var next: Node<T>? = null
     var previous: Node<T>? = null
 }
 
 class LinkedList<T> {
-
     private var head: Node<T>? = null
 
     var isEmpty: Boolean = head == null
@@ -18,27 +44,27 @@ class LinkedList<T> {
 
     fun last(): Node<T>? {
         var node = head
-        if (node != null) {
+        return if (node != null) {
             while (node?.next != null) {
-                node = node?.next
+                node = node.next
             }
-            return node
+            node
         } else {
-            return null
+            null
         }
     }
 
     fun count(): Int {
         var node = head
-        if (node != null) {
+        return if (node != null) {
             var counter = 1
             while (node?.next != null) {
-                node = node?.next
+                node = node.next
                 counter += 1
             }
-            return counter
+            counter
         } else {
-            return 0
+            0
         }
     }
 
@@ -56,9 +82,9 @@ class LinkedList<T> {
     }
 
     fun append(value: T) {
-        var newNode = Node(value)
+        val newNode = Node(value)
+        val lastNode = this.last()
 
-        var lastNode = this.last()
         if (lastNode != null) {
             newNode.previous = lastNode
             lastNode.next = newNode
@@ -90,25 +116,28 @@ class LinkedList<T> {
 
     fun removeLast(): T? {
         val last = this.last()
-        if (last != null) {
-            return removeNode(last)
+
+        return if (last != null) {
+            removeNode(last)
         } else {
-            return null
+            null
         }
     }
 
     fun removeAtIndex(index: Int): T? {
         val node = nodeAtIndex(index)
-        if (node != null) {
-            return removeNode(node)
+
+        return if (node != null) {
+            removeNode(node)
         } else {
-            return null
+            null
         }
     }
 
     override fun toString(): String {
         var s = "["
         var node = head
+
         while (node != null) {
             s += "${node.value}"
             node = node.next
@@ -118,32 +147,4 @@ class LinkedList<T> {
         }
         return "$s]"
     }
-}
-
-fun main() {
-    var ll = LinkedList<String>()
-
-    ll.append("John")
-    println(ll)
-    ll.append("Carl")
-    println(ll)
-    ll.append("Zack")
-    println(ll)
-    ll.append("Tim")
-    println(ll)
-    ll.append("Steve")
-    println(ll)
-    ll.append("Peter")
-    println(ll)
-
-    print("\n\n")
-
-    println("first item: ${ll.first()?.value}")
-    println("last item: ${ll.last()?.value}")
-    println("second item: ${ll.first()?.next?.value}")
-    println("penultimate item: ${ll.last()?.previous?.value}")
-
-    println("\n4th item: ${ll.nodeAtIndex(3)?.value}")
-
-    println("\nthe list has ${ll.count()} items")
 }

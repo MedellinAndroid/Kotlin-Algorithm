@@ -6,7 +6,7 @@ It is typically used in computer science to implement static lookup tables to ho
 
 Source: [Wikipedia page for Ordered Array](https://en.wikipedia.org/wiki/Sorted_array)
 
-Kotlin playground [link](https://pl.kotl.in/3nnxhOLcB)
+Kotlin playground [link](https://pl.kotl.in/Ow5ZuDhLn)
 
 The implementation is quite basic:
 
@@ -19,7 +19,8 @@ class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
      * Use quicksort algorithm to order elements in array
      */
     fun quicksort(its: List<T>): List<T> {
-        if (its.count() < 1) return its
+        if (its.isEmpty()) return its
+
         val pivot = its[its.count() / 2]
         val equal = its.filter { it == pivot }
         val less = its.filter { it < pivot }
@@ -39,6 +40,7 @@ class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
     fun findElementPosition(element: T): Int {
         var rangeStart = 0
         var rangeEnd = this.items.count()
+
         while (rangeStart < rangeEnd) {
             val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {

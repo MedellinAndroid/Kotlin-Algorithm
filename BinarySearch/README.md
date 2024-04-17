@@ -4,7 +4,7 @@ Binary Search is a search algorithm that finds the position of a target value, w
 
 Source: [Wikipedia page for Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
-Kotlin playground [link](https://pl.kotl.in/5IM_0VaaP)
+Kotlin playground [link](https://pl.kotl.in/VbovbsFgJ)
 
 ## Code
 
@@ -14,6 +14,7 @@ Here is an iterative implementation of the binary search algorithm in Kotlin:
 fun <T : Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
     var rangeStart = 0
     var rangeEnd = list.count()
+
     while (rangeStart < rangeEnd) {
         val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
         if (list[midIndex] == key) {

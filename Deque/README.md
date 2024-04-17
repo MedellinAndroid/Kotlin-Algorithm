@@ -55,5 +55,3 @@ class Deque<T>() {
     }
 }
 ```
-
-Code by: - [Andy Bowes](https://github.com/AndyBowes)

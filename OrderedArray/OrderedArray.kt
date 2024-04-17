@@ -1,8 +1,24 @@
 /**
  * Created by gazollajunior on 02/04/16.
  */
+fun main() {
+    println("\nOriginal list:")
+    val names = listOf("Tim", "Steve", "Zack", "Adam", "John", "Peter", "Clark") as MutableList<String>
+    println(names)
+    println("\nOrdered list:")
+    val ordered = OrderedArray(names)
+    println(ordered)
 
+    val n1 = "Paul"
+    println("\nAdding $n1 to the list:")
+    ordered.insert(n1)
+    println(ordered)
 
+    val n2 = "Demetrius"
+    println("\nAdding $n2 to the list:")
+    ordered.insert(n2)
+    println(ordered)
+}
 class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
 
     var items: MutableList<T> = this.quicksort(list) as MutableList<T>
@@ -11,7 +27,8 @@ class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
      * Use quicksort algorithm to order elements in array
      */
     fun quicksort(its: List<T>): List<T> {
-        if (its.count() < 1) return its
+        if (its.isEmpty()) return its
+
         val pivot = its[its.count() / 2]
         val equal = its.filter { it == pivot }
         val less = its.filter { it < pivot }
@@ -31,6 +48,7 @@ class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
     fun findElementPosition(element: T): Int {
         var rangeStart = 0
         var rangeEnd = this.items.count()
+
         while (rangeStart < rangeEnd) {
             val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {
@@ -45,23 +63,4 @@ class OrderedArray<T : Comparable<T>>(list: MutableList<T>) {
     }
 
     override fun toString(): String = this.items.toString()
-}
-
-fun main() {
-    println("\nOriginal list:")
-    val names = listOf<String>("Tim", "Steve", "Zack", "Adam", "John", "Peter", "Clark") as MutableList<String>
-    println(names)
-    println("\nOrdered list:")
-    val ordered = OrderedArray<String>(names)
-    println(ordered)
-
-    val n1 = "Paul"
-    println("\nAdding ${n1} to the list:")
-    ordered.insert(n1)
-    println(ordered)
-
-    val n2 = "Demetrius"
-    println("\nAdding ${n2} to the list:")
-    ordered.insert(n2)
-    println(ordered)
 }

@@ -1,6 +1,22 @@
 /**
  * Created by gazollajunior on 03/04/16.
  */
+fun main() {
+    val initialValue = mutableListOf(10)
+    val stack = Stack(initialValue)
+    println(stack)
+    stack.push(22)
+    println(stack)
+    stack.push(55)
+    println(stack)
+    stack.push(77)
+    println(stack)
+    stack.pop()
+    println(stack)
+
+    for (item in stack) println("Item in stack : $item")
+}
+
 class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
 
     var itCounter: Int = 0
@@ -19,19 +35,19 @@ class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
     override fun toString() = this.items.toString()
 
     fun pop(): T? {
-        if (this.isEmpty()) {
-            return null
+        return if (this.isEmpty()) {
+            null
         } else {
             val item = this.items.count() - 1
-            return this.items.removeAt(item)
+            this.items.removeAt(item)
         }
     }
 
     fun peek(): T? {
-        if (isEmpty()) {
-            return null
+        return if (isEmpty()) {
+            null
         } else {
-            return this.items[this.items.count() - 1]
+            this.items[this.items.count() - 1]
         }
     }
 
@@ -67,20 +83,4 @@ class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
             throw NoSuchElementException("No such element")
         }
     }
-}
-
-fun main() {
-    var initialValue = mutableListOf<Int>(10)
-    var stack = Stack<Int>(initialValue)
-    println(stack)
-    stack.push(22)
-    println(stack)
-    stack.push(55)
-    println(stack)
-    stack.push(77)
-    println(stack)
-    stack.pop()
-    println(stack)
-
-    for (item in stack) println("Item in stack : " + item)
 }

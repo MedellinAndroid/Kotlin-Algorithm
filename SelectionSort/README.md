@@ -4,7 +4,7 @@ Selection sort is a sorting algorithm, specifically an in-place comparison sort.
 
 Source: [Wikipedia page for Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
-Kotlin playground [link](https://pl.kotl.in/BMeKfNwHZ)
+Kotlin playground [link](https://pl.kotl.in/pFXOpvgnG)
 
 ## Code
 

@@ -8,7 +8,7 @@ Queue is a particular kind of abstract data type or collection in which the enti
 
 Source: [Wikipedia page for Queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
 
-Kotlin playground [link](https://pl.kotl.in/gWyXQckNN)
+Kotlin playground [link](https://pl.kotl.in/aJr_jDG_W)
 
 
 ## Code
@@ -31,10 +31,10 @@ class Queue<T>(list: MutableList<T>) : Iterator<T> {
     }
 
     fun dequeue(): T? {
-        if (this.isEmpty()) {
-            return null
+        return if (this.isEmpty()) {
+            null
         } else {
-            return this.items.removeAt(0)
+            this.items.removeAt(0)
         }
     }
 

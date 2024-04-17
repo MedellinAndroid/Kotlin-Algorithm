@@ -8,7 +8,7 @@ QuickSort is an efficient sorting algorithm, serving as a systematic method for 
 
 Source: [Wikipedia page for Quick sort](https://en.wikipedia.org/wiki/Quicksort)
 
-Kotlin playground [link](https://pl.kotl.in/FK5MseqOK)
+Kotlin playground [link](https://pl.kotl.in/YOZlU4VsB)
 
 Here's an implementation in kotlin that should be easy to understand:
 

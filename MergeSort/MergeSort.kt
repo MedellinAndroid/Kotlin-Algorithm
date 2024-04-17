@@ -2,6 +2,15 @@
  * Created by gazollajunior on 09/04/16.
  * Updated by yazdanmanesh on 03/16/23
  */
+fun main() {
+    println("\nOriginal list:")
+    val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
+    println(names)
+    println("\nOrdered list:")
+    val ordered = mergeSort(names)
+    println(ordered)
+}
+
 fun <T : Comparable<T>> mergeSort(items: List<T>): List<T> {
     if (items.size <= 1) {
         return items
@@ -34,13 +43,4 @@ fun <T : Comparable<T>> mergeSort(items: List<T>): List<T> {
     val right = mergeSort(items.subList(pivot, items.size))
 
     return merge(left, right)
-}
-
-fun main() {
-    println("\nOriginal list:")
-    val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
-    println(names)
-    println("\nOrdered list:")
-    val ordered = mergeSort(names)
-    println(ordered)
 }

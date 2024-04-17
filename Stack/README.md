@@ -8,7 +8,7 @@ Stack is an abstract data type that serves as a collection of elements, with two
 
 Source: [Wikipedia page for Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
-Kotlin playground [link](https://pl.kotl.in/TlCkIAG2I)
+Kotlin playground [link](https://pl.kotl.in/64eO1UfZA)
 
 ## Code
 
@@ -31,19 +31,19 @@ class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
     override fun toString() = this.items.toString()
 
     fun pop(): T? {
-        if (this.isEmpty()) {
-            return null
+        return if (this.isEmpty()) {
+            null
         } else {
             val item = this.items.count() - 1
-            return this.items.removeAt(item)
+            this.items.removeAt(item)
         }
     }
 
     fun peek(): T? {
-        if (isEmpty()) {
-            return null
+        return if (isEmpty()) {
+            null
         } else {
-            return this.items[this.items.count() - 1]
+            this.items[this.items.count() - 1]
         }
     }
 

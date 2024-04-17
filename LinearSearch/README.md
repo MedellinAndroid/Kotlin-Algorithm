@@ -4,7 +4,7 @@ Linear search is the simplest search algorithm; it is a special case of brute-fo
 
 Source: [Wikipedia page for Linear Search](https://en.wikipedia.org/wiki/Linear_search)
 
-Kotlin playground [link](https://pl.kotl.in/PD892E7BG)
+Kotlin playground [link](https://pl.kotl.in/GTR_bIy64)
 
 ## Code
 

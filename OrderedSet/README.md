@@ -2,7 +2,7 @@
 
 An ordered set is a common data structure that supports O(log N) lookups, insertions and removals. Ordered set is also sometimes used as an alternative to a hash map, for example in STL’s map.
 
-Kotlin playground [link](https://pl.kotl.in/nlopAYqc4)
+Kotlin playground [link](https://pl.kotl.in/LjDtFPjLv)
 
 ## Code
 
@@ -15,7 +15,8 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
         if (exists(element)) {
             return
         }
-        for (i in 0..this.items.count() - 1) {
+
+        for (i in 0..<this.items.count()) {
             if (this.items[i] > element) {
                 this.items.add(i, element)
                 return
@@ -31,6 +32,7 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
     fun findElementPosition(element: T): Int? {
         var rangeStart = 0
         var rangeEnd = this.items.count()
+
         while (rangeStart < rangeEnd) {
             val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {
@@ -62,18 +64,18 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
     fun removeAll() = this.items.removeAll(this.items)
 
     fun max(): T? {
-        if (count() != 0) {
-            return this.items[count() - 1]
+        return if (count() != 0) {
+            this.items[count() - 1]
         } else {
-            return null
+            null
         }
     }
 
     fun min(): T? {
-        if (count() != 0) {
-            return this.items[0]
+        return if (count() != 0) {
+            this.items[0]
         } else {
-            return null
+            null
         }
     }
 }

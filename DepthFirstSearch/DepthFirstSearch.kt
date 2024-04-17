@@ -1,7 +1,6 @@
-import "Stack/Stack.kt"
+import java.util.Stack
 
 fun main() {
-
     val adjacencyList = AdjacencyList<String>()
 
     val s = adjacencyList.createVertex("S")
@@ -26,9 +25,9 @@ fun main() {
     print(depthFirstSearch(s, e, adjacencyList))
 }
 
-fun depthFirstSearch(start: Vertex, end: Vertex, graph: AdjacencyList<String>): Stack<Vertex> {
-    val visited: MutableSet<Vertex> = mutableSetOf()
-    val stack = Stack<Vertex>()
+fun depthFirstSearch(start: Vertex<String>, end: Vertex<String>, graph: AdjacencyList<String>): Stack<Vertex<String>> {
+    val visited: MutableSet<Vertex<String>> = mutableSetOf()
+    val stack = Stack<Vertex<String>>()
 
     stack.push(start)
     visited.add(start)
@@ -38,7 +37,7 @@ fun depthFirstSearch(start: Vertex, end: Vertex, graph: AdjacencyList<String>): 
     loop@ while (vertex != null && vertex != end) {
 
         val neighbors = graph.edges(vertex)
-        if (neighbors != null && neighbors.count() > 0) {
+        if (!neighbors.isNullOrEmpty()) {
 
             for (edge in neighbors) {
                 if (!visited.contains(edge.destination)) {

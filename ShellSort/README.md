@@ -9,7 +9,7 @@ The running time of Shellsort is heavily dependent on the gap sequence it uses.
 
 Source: [Wikipedia ShellSort](https://en.wikipedia.org/wiki/Shellsort)
 
-Kotlin playground [link](https://pl.kotl.in/_jrdD2CrI)
+Kotlin playground [link](https://pl.kotl.in/Gp9OtkFz8)
 
 ## Code
 

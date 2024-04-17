@@ -1,6 +1,47 @@
 /**
  * Created by gazollajunior on 08/04/16.
  */
+fun main() {
+    println("\nOriginal set:")
+    val names = mutableListOf("Demetrius")
+
+    val nameSet = OrderedSet(names)
+    println(nameSet)
+
+
+    val n1 = "Adam"
+    println("\nAdding $n1 to the list:")
+    nameSet.insert(n1)
+    println(nameSet)
+
+    val n2 = "Tim"
+    println("\nAdding $n2 to the list:")
+    nameSet.insert(n2)
+    println(nameSet)
+
+    val n3 = "Zack"
+    println("\nAdding $n3 to the list:")
+    nameSet.insert(n3)
+    println(nameSet)
+
+    val n4 = "Zack"
+    println("\nTry Add $n4 again to the list:")
+    nameSet.insert(n4)
+    println(nameSet)
+
+    nameSet.remove(n2)
+    println("\nRemoving $n2 from the list:")
+    println(nameSet)
+
+    nameSet.remove(n4)
+    println("\nRemoving $n4 from the list:")
+    println(nameSet)
+
+    nameSet.remove(n1)
+    println("\nRemoving $n1 from the list:")
+    println(nameSet)
+}
+
 class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
 
     var items: MutableList<T> = list
@@ -9,7 +50,8 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
         if (exists(element)) {
             return
         }
-        for (i in 0..this.items.count() - 1) {
+
+        for (i in 0..<this.items.count()) {
             if (this.items[i] > element) {
                 this.items.add(i, element)
                 return
@@ -25,6 +67,7 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
     fun findElementPosition(element: T): Int? {
         var rangeStart = 0
         var rangeEnd = this.items.count()
+
         while (rangeStart < rangeEnd) {
             val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {
@@ -56,59 +99,18 @@ class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
     fun removeAll() = this.items.removeAll(this.items)
 
     fun max(): T? {
-        if (count() != 0) {
-            return this.items[count() - 1]
+        return if (count() != 0) {
+            this.items[count() - 1]
         } else {
-            return null
+            null
         }
     }
 
     fun min(): T? {
-        if (count() != 0) {
-            return this.items[0]
+        return if (count() != 0) {
+            this.items[0]
         } else {
-            return null
+            null
         }
     }
-}
-
-fun main() {
-    println("\nOriginal set:")
-    val names = mutableListOf<String>("Demetrius")
-
-    var nameSet = OrderedSet<String>(names)
-    println(nameSet)
-
-
-    val n1 = "Adam"
-    println("\nAdding ${n1} to the list:")
-    nameSet.insert(n1)
-    println(nameSet)
-
-    val n2 = "Tim"
-    println("\nAdding ${n2} to the list:")
-    nameSet.insert(n2)
-    println(nameSet)
-
-    val n3 = "Zack"
-    println("\nAdding ${n3} to the list:")
-    nameSet.insert(n3)
-    println(nameSet)
-
-    val n4 = "Zack"
-    println("\nTry Add ${n4} again to the list:")
-    nameSet.insert(n4)
-    println(nameSet)
-
-    nameSet.remove(n2)
-    println("\nRemoving ${n2} from the list:")
-    println(nameSet)
-
-    nameSet.remove(n4)
-    println("\nRemoving ${n4} from the list:")
-    println(nameSet)
-
-    nameSet.remove(n1)
-    println("\nRemoving ${n1} from the list:")
-    println(nameSet)
 }
