@@ -2,37 +2,37 @@
  * Created by gazollajunior on 07/04/16.
  */
 
-class Node<T>(value: T){
-    var value:T = value
+class Node<T>(value: T) {
+    var value: T = value
     var next: Node<T>? = null
-    var previous:Node<T>? = null
+    var previous: Node<T>? = null
 }
 
 class LinkedList<T> {
 
-    private var head:Node<T>? = null
+    private var head: Node<T>? = null
 
-    var isEmpty:Boolean = head == null
+    var isEmpty: Boolean = head == null
 
-    fun first():Node<T>? = head
+    fun first(): Node<T>? = head
 
     fun last(): Node<T>? {
-            var node = head
-            if (node != null){
-                while (node?.next != null) {
-                    node = node?.next
-                }
-                return node
-            } else {
-                return null
+        var node = head
+        if (node != null) {
+            while (node?.next != null) {
+                node = node?.next
             }
+            return node
+        } else {
+            return null
+        }
     }
 
-    fun count():Int {
+    fun count(): Int {
         var node = head
-        if (node != null){
+        if (node != null) {
             var counter = 1
-            while (node?.next != null){
+            while (node?.next != null) {
                 node = node?.next
                 counter += 1
             }
@@ -42,7 +42,7 @@ class LinkedList<T> {
         }
     }
 
-    fun nodeAtIndex(index: Int) : Node<T>? {
+    fun nodeAtIndex(index: Int): Node<T>? {
         if (index >= 0) {
             var node = head
             var i = index
@@ -71,7 +71,7 @@ class LinkedList<T> {
         head = null
     }
 
-    fun removeNode(node: Node<T>):T {
+    fun removeNode(node: Node<T>): T {
         val prev = node.previous
         val next = node.next
 
@@ -88,7 +88,7 @@ class LinkedList<T> {
         return node.value
     }
 
-    fun removeLast() : T? {
+    fun removeLast(): T? {
         val last = this.last()
         if (last != null) {
             return removeNode(last)
@@ -97,7 +97,7 @@ class LinkedList<T> {
         }
     }
 
-    fun removeAtIndex(index: Int):T? {
+    fun removeAtIndex(index: Int): T? {
         val node = nodeAtIndex(index)
         if (node != null) {
             return removeNode(node)
@@ -112,13 +112,15 @@ class LinkedList<T> {
         while (node != null) {
             s += "${node.value}"
             node = node.next
-            if (node != null) { s += ", " }
+            if (node != null) {
+                s += ", "
+            }
         }
-        return s + "]"
+        return "$s]"
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     var ll = LinkedList<String>()
 
     ll.append("John")
@@ -145,5 +147,3 @@ fun main(args: Array<String>) {
 
     println("\nthe list has ${ll.count()} items")
 }
-
-

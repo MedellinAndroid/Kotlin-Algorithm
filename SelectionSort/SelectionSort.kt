@@ -2,13 +2,13 @@
  * Created by gazollajunior on 09/04/16.
  */
 
-fun <T:Comparable<T>>selectionsort(items:MutableList<T>):MutableList<T>{
-    if (items.isEmpty()){
+fun <T : Comparable<T>> selectionSort(items: MutableList<T>): MutableList<T> {
+    if (items.isEmpty()) {
         return items
     }
-    for (idx in 0..items.count()){
-        val array = items.subList(0,items.count()-idx)
-        val minItem = array.min()
+    for (idx in 0..items.count()) {
+        val array = items.subList(0, items.count() - idx)
+        val minItem = array.minOrNull()
         val indexOfMinItem = array.indexOf(minItem)
 
         if (minItem != null) {
@@ -19,11 +19,11 @@ fun <T:Comparable<T>>selectionsort(items:MutableList<T>):MutableList<T>{
     return items
 }
 
-
-fun main(args: Array<String>) {
-    println("Selection Sort")
+fun main() {
+    println("\nOriginal list:")
     val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
     println(names)
-    var ordered = insertionsort(names)
+    println("\nOrdered list:")
+    var ordered = selectionSort(names)
     println(ordered)
 }

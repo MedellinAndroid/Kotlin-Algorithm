@@ -1,4 +1,4 @@
-interface Graphable<T:Comparable<T>> {
+interface Graphable<T : Comparable<T>> {
 
     fun createVertex(data: T): Vertex<T>
     fun add(type: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double? = 0.0)

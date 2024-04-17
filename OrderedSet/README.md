@@ -2,38 +2,40 @@
 
 An ordered set is a common data structure that supports O(log N) lookups, insertions and removals. Ordered set is also sometimes used as an alternative to a hash map, for example in STL’s map.
 
-## The code
+Kotlin playground [link](https://pl.kotl.in/nlopAYqc4)
+
+## Code
 
 ```kotlin
-class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
+class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
 
-    var items: MutableList<T>  = list
+    var items: MutableList<T> = list
 
-     fun insert(element:T) {
+    fun insert(element: T) {
         if (exists(element)) {
-           return
+            return
         }
-        for (i in 0..this.items.count() - 1){
-            if (this.items[i] > element){
+        for (i in 0..this.items.count() - 1) {
+            if (this.items[i] > element) {
                 this.items.add(i, element)
                 return
             }
         }
-         this.items.add(element)
+        this.items.add(element)
     }
 
     /**
      * Use binarySearch algorithm to find the position for the new element in array
      */
 
-    fun findElementPosition(element:T):Int?{
+    fun findElementPosition(element: T): Int? {
         var rangeStart = 0
         var rangeEnd = this.items.count()
         while (rangeStart < rangeEnd) {
-            val midIndex = rangeStart + (rangeEnd - rangeStart)/2
+            val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {
                 return midIndex
-            } else if (this.items[midIndex] < element){
+            } else if (this.items[midIndex] < element) {
                 rangeStart = midIndex + 1
             } else {
                 rangeEnd = midIndex
@@ -42,31 +44,32 @@ class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
         return null
     }
 
-    override fun toString():String = this.items.toString()
+    override fun toString(): String = this.items.toString()
 
-    fun isEmpty():Boolean = this.items.isEmpty()
+    fun isEmpty(): Boolean = this.items.isEmpty()
 
-    fun exists(element:T):Boolean = findElementPosition(element) != null
+    fun exists(element: T): Boolean = findElementPosition(element) != null
 
-    fun count():Int = this.items.count()
+    fun count(): Int = this.items.count()
 
-    fun remove(element:T) {
+    fun remove(element: T) {
         val position = findElementPosition(element)
         if (position != null) {
             this.items.removeAt(position)
         }
     }
 
-    fun removeAll() =  this.items.removeAll(this.items)
+    fun removeAll() = this.items.removeAll(this.items)
 
-    fun max():T? {
+    fun max(): T? {
         if (count() != 0) {
             return this.items[count() - 1]
         } else {
             return null
         }
     }
-    fun min():T? {
+
+    fun min(): T? {
         if (count() != 0) {
             return this.items[0]
         } else {
@@ -74,5 +77,4 @@ class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
         }
     }
 }
-
 ```

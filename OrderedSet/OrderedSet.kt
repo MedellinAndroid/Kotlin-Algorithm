@@ -1,36 +1,35 @@
 /**
  * Created by gazollajunior on 08/04/16.
  */
+class OrderedSet<T : Comparable<T>>(list: MutableList<T>) {
 
-class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
+    var items: MutableList<T> = list
 
-    var items: MutableList<T>  = list
-
-     fun insert(element:T) {
+    fun insert(element: T) {
         if (exists(element)) {
-           return
+            return
         }
-        for (i in 0..this.items.count() - 1){
-            if (this.items[i] > element){
+        for (i in 0..this.items.count() - 1) {
+            if (this.items[i] > element) {
                 this.items.add(i, element)
                 return
             }
         }
-         this.items.add(element)
+        this.items.add(element)
     }
 
     /**
      * Use binarySearch algorithm to find the position for the new element in array
      */
 
-    fun findElementPosition(element:T):Int?{
+    fun findElementPosition(element: T): Int? {
         var rangeStart = 0
         var rangeEnd = this.items.count()
         while (rangeStart < rangeEnd) {
-            val midIndex = rangeStart + (rangeEnd - rangeStart)/2
+            val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
             if (this.items[midIndex] == element) {
                 return midIndex
-            } else if (this.items[midIndex] < element){
+            } else if (this.items[midIndex] < element) {
                 rangeStart = midIndex + 1
             } else {
                 rangeEnd = midIndex
@@ -39,31 +38,32 @@ class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
         return null
     }
 
-    override fun toString():String = this.items.toString()
+    override fun toString(): String = this.items.toString()
 
-    fun isEmpty():Boolean = this.items.isEmpty()
+    fun isEmpty(): Boolean = this.items.isEmpty()
 
-    fun exists(element:T):Boolean = findElementPosition(element) != null
+    fun exists(element: T): Boolean = findElementPosition(element) != null
 
-    fun count():Int = this.items.count()
+    fun count(): Int = this.items.count()
 
-    fun remove(element:T) {
+    fun remove(element: T) {
         val position = findElementPosition(element)
         if (position != null) {
             this.items.removeAt(position)
         }
     }
 
-    fun removeAll() =  this.items.removeAll(this.items)
+    fun removeAll() = this.items.removeAll(this.items)
 
-    fun max():T? {
+    fun max(): T? {
         if (count() != 0) {
             return this.items[count() - 1]
         } else {
             return null
         }
     }
-    fun min():T? {
+
+    fun min(): T? {
         if (count() != 0) {
             return this.items[0]
         } else {
@@ -72,13 +72,9 @@ class OrderedSet<T:Comparable<T>>(list:MutableList<T>){
     }
 }
 
-
-
-fun main(args: Array<String>) {
-
-
+fun main() {
     println("\nOriginal set:")
-    val names =  mutableListOf<String>("Demetrius")
+    val names = mutableListOf<String>("Demetrius")
 
     var nameSet = OrderedSet<String>(names)
     println(nameSet)
@@ -103,17 +99,16 @@ fun main(args: Array<String>) {
     println("\nTry Add ${n4} again to the list:")
     nameSet.insert(n4)
     println(nameSet)
-	
-	nameSet.remove(n2)
-	println("\nRemoving ${n2} from the list:")
-	println(nameSet)
 
-	nameSet.remove(n4)
-	println("\nRemoving ${n4} from the list:")
-	println(nameSet)
+    nameSet.remove(n2)
+    println("\nRemoving ${n2} from the list:")
+    println(nameSet)
 
-	nameSet.remove(n1)
-	println("\nRemoving ${n1} from the list:")
-	println(nameSet)
+    nameSet.remove(n4)
+    println("\nRemoving ${n4} from the list:")
+    println(nameSet)
 
+    nameSet.remove(n1)
+    println("\nRemoving ${n1} from the list:")
+    println(nameSet)
 }

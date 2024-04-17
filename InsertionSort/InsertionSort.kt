@@ -1,15 +1,14 @@
 /**
  * Created by gazollajunior on 09/04/16.
  */
-
-fun <T:Comparable<T>> insertionsort(items:MutableList<T>):List<T>{
-    if (items.isEmpty()){
+fun <T : Comparable<T>> insertionSort(items: MutableList<T>): List<T> {
+    if (items.isEmpty()) {
         return items
     }
-    for (count in 1..items.count() - 1){
+    for (count in 1..items.count() - 1) {
         val item = items[count]
         var i = count
-        while (i>0 && item < items[i - 1]){
+        while (i > 0 && item < items[i - 1]) {
             items[i] = items[i - 1]
             i -= 1
         }
@@ -18,10 +17,11 @@ fun <T:Comparable<T>> insertionsort(items:MutableList<T>):List<T>{
     return items
 }
 
-
-fun main(args: Array<String>) {
+fun main() {
+    println("\nOriginal list:")
     val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
     println(names)
-    var ordered = insertionsort(names)
+    println("\nOrdered list:")
+    var ordered = insertionSort(names)
     println(ordered)
 }

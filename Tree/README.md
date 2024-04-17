@@ -4,18 +4,23 @@ Tree is a widely used abstract data type (ADT)—or data structure implementing 
 
 A tree data structure can be defined recursively (locally) as a collection of nodes (starting at a root node), where each node is a data structure consisting of a value, together with a list of references to nodes (the "children"), with the constraints that no reference is duplicated, and none points to the root.
 
-source: Wikipedia
+Source: [Wikipedia page for Tree](https://en.wikipedia.org/wiki/Tree_(data_structure))
 
-## The code
+Kotlin playground [link](https://pl.kotl.in/EenoWgpKx)
+
+
+## Code
 
 
 ```kotlin
-class TreeNode<T>(value:T){
-    var value:T = value
-    var parent:TreeNode<T>? = null
-    var children:MutableList<TreeNode<T>> = mutableListOf()
+class TreeNode<T>(value: T) {
+    var value: T = value
 
-    fun addChild(node:TreeNode<T>){
+    var parent: TreeNode<T>? = null
+
+    var children: MutableList<TreeNode<T>> = mutableListOf()
+
+    fun addChild(node: TreeNode<T>) {
         children.add(node)
         node.parent = this
     }

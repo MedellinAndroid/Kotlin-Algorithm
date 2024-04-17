@@ -6,7 +6,7 @@ import org.junit.Assert.*
 /**
  * Spek BDD Test for Deque Class
  */
-class DequeSpecs: Spek(spekBody = {
+class DequeSpecs : Spek(spekBody = {
     given("Given an Empty Queue") {
         val deque: Deque<Int> = Deque()
         on("Peeking first value") {
@@ -15,9 +15,9 @@ class DequeSpecs: Spek(spekBody = {
                 assertNull(value)
             }
         }
-        on("Peeking last value"){
+        on("Peeking last value") {
             val value = deque.getLast()
-            it("should result in a null value"){
+            it("should result in a null value") {
                 assertNull(value)
             }
         }
@@ -31,7 +31,7 @@ class DequeSpecs: Spek(spekBody = {
                 assertNotNull(value)
                 assertEquals(1, value)
             }
-            it("2. should have removed the final value"){
+            it("2. should have removed the final value") {
                 assertNull(deque.peekFirst())
             }
         }
@@ -45,7 +45,7 @@ class DequeSpecs: Spek(spekBody = {
                 assertNotNull(value)
                 assertEquals(1, value)
             }
-            it("2. should have removed the final value"){
+            it("2. should have removed the final value") {
                 assertNull(deque.peekFirst())
             }
         }

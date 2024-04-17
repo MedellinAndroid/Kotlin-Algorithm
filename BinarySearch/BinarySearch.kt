@@ -4,11 +4,11 @@ import java.util.*
  * Created by gazollajunior on 03/04/16.
  */
 
-fun <T: Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
+fun <T : Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
     var rangeStart = 0
     var rangeEnd = list.count()
     while (rangeStart < rangeEnd) {
-        val midIndex = rangeStart + (rangeEnd - rangeStart)/2
+        val midIndex = rangeStart + (rangeEnd - rangeStart) / 2
         if (list[midIndex] == key) {
             return midIndex
         } else if (list[midIndex] < key) {
@@ -20,7 +20,7 @@ fun <T: Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
     return null
 }
 
-fun <T: Comparable<T>> binarySearchRec(list: List<T>, key: T): Optional<Int> {
+fun <T : Comparable<T>> binarySearchRec(list: List<T>, key: T): Optional<Int> {
     require(list == list.sorted())
 
     fun helper(start: Int, end: Int): Optional<Int> {
@@ -39,7 +39,7 @@ fun <T: Comparable<T>> binarySearchRec(list: List<T>, key: T): Optional<Int> {
     return helper(0, list.count())
 }
 
-fun main(args: Array<String>) {
+fun main() {
     println("\nOrdered list:")
     val ordered = listOf("Adam", "Clark", "John", "Tim", "Zack")
     println(ordered)

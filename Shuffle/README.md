@@ -2,16 +2,20 @@
 
 Randomly rearranges the contents of an array.
 
-## The code
+Kotlin playground [link](https://pl.kotl.in/TbpjaGZFO)
+
+## Code
 
 Here is a implementation of Shuffle in kotlin:
 
 ```kotlin
-fun <T:Comparable<T>>shuffle(items:MutableList<T>):List<T>{
-    val rg : Random = Random()
+import java.util.Random
+
+fun <T : Comparable<T>> shuffle(items: MutableList<T>): List<T> {
+    val rg: Random = Random()
     for (i in 0..items.size - 1) {
         val randomPosition = rg.nextInt(items.size)
-        val tmp : T = items[i]
+        val tmp: T = items[i]
         items[i] = items[randomPosition]
         items[randomPosition] = tmp
     }
@@ -25,10 +29,9 @@ Shuffle implementation provide by Markus Kramer. This implementation reuses exis
   /**
      * Returns a randomized list.
      */
-    fun <T> Iterable<T>.shuffle(seed: Long? = null): List<T> {
-        val list = this.toMutableList()
-        val random = if (seed != null) Random(seed) else Random()
-        Collections.shuffle(list, random)
-        return list
-    }
+fun <T> Iterable<T>.shuffle(): List<T> {
+    val list = this.toMutableList().apply { }
+    Collections.shuffle(list)
+    return list
+}
 ```

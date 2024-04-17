@@ -1,31 +1,31 @@
 /**
  * Created by gazollajunior on 05/04/16.
  */
-class Queue <T>(list:MutableList<T>): Iterator<T>{
+class Queue<T>(list: MutableList<T>) : Iterator<T> {
 
     var itCounter: Int = 0
 
-    var items:MutableList<T> = list
+    var items: MutableList<T> = list
 
-    fun isEmpty():Boolean = this.items.isEmpty()
+    fun isEmpty(): Boolean = this.items.isEmpty()
 
-    fun count():Int = this.items.count()
+    fun count(): Int = this.items.count()
 
-    override  fun toString() = this.items.toString()
+    override fun toString() = this.items.toString()
 
-    fun enqueue(element: T){
+    fun enqueue(element: T) {
         this.items.add(element)
     }
 
-    fun dequeue():T?{
-        if (this.isEmpty()){
+    fun dequeue(): T? {
+        if (this.isEmpty()) {
             return null
         } else {
             return this.items.removeAt(0)
         }
     }
 
-    fun peek():T?{
+    fun peek(): T? {
         return this.items[0]
     }
 
@@ -49,11 +49,10 @@ class Queue <T>(list:MutableList<T>): Iterator<T>{
     }
 }
 
-
-fun main(args: Array<String>) {
-
-    var initialValue =  mutableListOf<Int>(10)
+fun main() {
+    var initialValue = mutableListOf<Int>(10)
     var queue = Queue<Int>(initialValue)
+
     println(queue)
     queue.enqueue(22)
     println(queue)
@@ -70,5 +69,4 @@ fun main(args: Array<String>) {
 
     // Iterating over queue
     for (item in queue) println("Item in queue : " + item)
-
 }

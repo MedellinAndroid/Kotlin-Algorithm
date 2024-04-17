@@ -5,13 +5,11 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
 }
 
 fun MutableList<Int>.shellSort(): MutableList<Int> {
-
     var sublistCount = count() / 2
 
     while (sublistCount > 0) {
-
         var index = 0
-        outer@while (index >= 0 && index < count()) {
+        outer@ while (index >= 0 && index < count()) {
 
             if (index + sublistCount >= count()) break
 
@@ -37,8 +35,10 @@ fun MutableList<Int>.shellSort(): MutableList<Int> {
     return this
 }
 
-fun main(args: Array<String>) {
+fun main() {
+    println("\nOriginal list:")
     var mutableListOfInt = mutableListOf(10, 4, 5, 2, 1, 3, 6, 9, 8, 7)
-
+    println(mutableListOfInt)
+    println("\nOrdered list:")
     print(mutableListOfInt.shellSort().toString())
 }

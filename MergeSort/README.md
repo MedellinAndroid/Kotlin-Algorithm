@@ -1,7 +1,14 @@
-/**
- * Created by gazollajunior on 09/04/16.
- * Updated by yazdanmanesh on 03/16/23
- */
+# MergeSort
+
+Merge Sort is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output. Mergesort is a divide and conquer algorithm that was invented by John von Neumann in 1945.
+
+Source: [Wikipedia page for Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)
+
+Kotlin playground [link](https://pl.kotl.in/YxQEmMDPh)
+
+## Code
+
+```kotlin
 fun <T : Comparable<T>> mergeSort(items: List<T>): List<T> {
     if (items.size <= 1) {
         return items
@@ -35,12 +42,4 @@ fun <T : Comparable<T>> mergeSort(items: List<T>): List<T> {
 
     return merge(left, right)
 }
-
-fun main() {
-    println("\nOriginal list:")
-    val names = mutableListOf("John", "Tim", "Zack", "Daniel", "Adam")
-    println(names)
-    println("\nOrdered list:")
-    val ordered = mergeSort(names)
-    println(ordered)
-}
+```

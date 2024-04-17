@@ -1,6 +1,16 @@
-/**
- * Created by gazollajunior on 03/04/16.
- */
+# Stack
+
+![](https://github.com/gazolla/Kotlin-Algorithm/blob/master/Stack/Lifo_stack.png)
+
+Stack is an abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. The order in which elements come off a stack gives rise to its alternative name, LIFO (for last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+
+Source: [Wikipedia page for Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+
+Kotlin playground [link](https://pl.kotl.in/TlCkIAG2I)
+
+## Code
+
+```kotlin
 class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
 
     var itCounter: Int = 0
@@ -35,20 +45,6 @@ class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
         }
     }
 
-// Note Let the default implementation exist
-
-//    override fun toString(): String {
-//        val topDivider = "---Stack---\n"
-//        val bottomDivider = "\n-----------"
-//
-//        val stackElements = array.map {
-//            "$it"
-//        }.reversed().joinToString("\n")
-//
-//        return topDivider + stackElements + bottomDivider
-//
-//    }
-
     override fun hasNext(): Boolean {
         val hasNext = itCounter < count()
 
@@ -68,19 +64,4 @@ class Stack<T : Comparable<T>>(list: MutableList<T>) : Iterator<T> {
         }
     }
 }
-
-fun main() {
-    var initialValue = mutableListOf<Int>(10)
-    var stack = Stack<Int>(initialValue)
-    println(stack)
-    stack.push(22)
-    println(stack)
-    stack.push(55)
-    println(stack)
-    stack.push(77)
-    println(stack)
-    stack.pop()
-    println(stack)
-
-    for (item in stack) println("Item in stack : " + item)
-}
+```

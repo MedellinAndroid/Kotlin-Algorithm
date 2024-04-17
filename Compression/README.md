@@ -4,19 +4,19 @@ Run-length encoding (RLE) is a very simple form of lossless data compression in 
 
 RLE may also be used to refer to an early graphics file format supported by CompuServe for compressing black and white images, but was widely supplanted by their later Graphics Interchange Format. RLE also refers to a little-used image format in Windows 3.x, with the extension rle, which is a Run Length Encoded Bitmap, used to compress the Windows 3.x startup screen.
 
-source:Wikipedia
+Source: [Wikipedia page for Run-length encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
 
 
-## The code
+## Code
 
 ```kotlin
-tailrec fun runLengthEncoding(text:String,prev:String=""):String {
-    if (text.length == 0){
+tailrec fun runLengthEncoding(text: String, prev: String = ""): String {
+    if (text.length == 0) {
         return prev
     }
     val initialChar = text.get(0)
-    val count = text.takeWhile{ it==initialChar }.count()
-    return runLengthEncoding(text.substring(count),prev + "$count$initialChar" )
+    val count = text.takeWhile { it == initialChar }.count()
+    return runLengthEncoding(text.substring(count), prev + "$count$initialChar")
 }
 
 ```

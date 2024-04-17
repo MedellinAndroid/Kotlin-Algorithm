@@ -7,16 +7,16 @@ package deque
  *
  * Created by Andy Bowes on 05/05/2016.
  */
-class Deque<T>(){
+class Deque<T>() {
 
-    var backingList : MutableList<T> = arrayListOf()
+    var backingList: MutableList<T> = arrayListOf()
 
-    fun addFirst(element:T){
-        backingList.add(0,element)
+    fun addFirst(element: T) {
+        backingList.add(0, element)
     }
 
-    fun getFirst():T?{
-        if (backingList.isEmpty()){
+    fun getFirst(): T? {
+        if (backingList.isEmpty()) {
             return null
         }
         val value = backingList.first()
@@ -24,20 +24,20 @@ class Deque<T>(){
         return value
     }
 
-    fun removeFirst(){
+    fun removeFirst() {
         if (backingList.isNotEmpty()) backingList.removeAt(0)
     }
 
-    fun peekFirst(): T?{
+    fun peekFirst(): T? {
         return if (backingList.isNotEmpty()) backingList.first() else null
     }
 
-    fun addLast(element:T){
+    fun addLast(element: T) {
         backingList.add(element)
     }
 
-    fun getLast():T?{
-        if (backingList.isEmpty()){
+    fun getLast(): T? {
+        if (backingList.isEmpty()) {
             return null
         }
         val value = backingList.last()
@@ -45,11 +45,11 @@ class Deque<T>(){
         return value
     }
 
-    fun removeLast(){
+    fun removeLast() {
         if (backingList.isNotEmpty()) backingList.removeAt(backingList.size - 1)
     }
 
-    fun peekLast():T?{
+    fun peekLast(): T? {
         return if (backingList.isNotEmpty()) backingList.last() else null
     }
 }

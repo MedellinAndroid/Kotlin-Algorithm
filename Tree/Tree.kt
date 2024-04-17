@@ -1,15 +1,14 @@
 /**
  * Created by gazolla on 10/04/16.
  */
-class TreeNode<T>(value:T){
-    var value:T = value
+class TreeNode<T>(value: T) {
+    var value: T = value
 
-    var parent:TreeNode<T>? = null
+    var parent: TreeNode<T>? = null
 
-    var children:MutableList<TreeNode<T>> = mutableListOf()
+    var children: MutableList<TreeNode<T>> = mutableListOf()
 
-
-    fun addChild(node:TreeNode<T>){
+    fun addChild(node: TreeNode<T>) {
         children.add(node)
         node.parent = this
     }
@@ -23,26 +22,26 @@ class TreeNode<T>(value:T){
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
 
-    val tree = TreeNode<String>( "beverages")
+    val tree = TreeNode<String>("beverages")
 
-    val hotNode = TreeNode<String>( "hot")
-    val coldNode = TreeNode<String>( "cold")
+    val hotNode = TreeNode<String>("hot")
+    val coldNode = TreeNode<String>("cold")
 
-    val teaNode = TreeNode<String>( "tea")
-    val coffeeNode = TreeNode<String>( "coffee")
-    val chocolateNode = TreeNode<String>( "cocoa")
+    val teaNode = TreeNode<String>("tea")
+    val coffeeNode = TreeNode<String>("coffee")
+    val chocolateNode = TreeNode<String>("cocoa")
 
-    val blackTeaNode = TreeNode<String>( "black")
-    val greenTeaNode = TreeNode<String>( "green")
-    val chaiTeaNode = TreeNode<String>( "chai")
+    val blackTeaNode = TreeNode<String>("black")
+    val greenTeaNode = TreeNode<String>("green")
+    val chaiTeaNode = TreeNode<String>("chai")
 
-    val sodaNode = TreeNode<String>( "soda")
-    val milkNode = TreeNode<String>( "milk")
+    val sodaNode = TreeNode<String>("soda")
+    val milkNode = TreeNode<String>("milk")
 
-    val gingerAleNode = TreeNode<String>( "ginger ale")
-    val bitterLemonNode = TreeNode<String>( "bitter lemon")
+    val gingerAleNode = TreeNode<String>("ginger ale")
+    val bitterLemonNode = TreeNode<String>("bitter lemon")
 
     tree.addChild(hotNode)
     tree.addChild(coldNode)

@@ -13,10 +13,12 @@ Algorithms that use depth-first search as a building block include:
 * Finding the bridges of a graph.
 * Generating words in order to plot the Limit Set of a Group.
 * Finding strongly connected components.
-* Planarity testing[7][8]
+* (Planarity testing)[https://en.wikipedia.org/wiki/Planarity_testing]
 * Solving puzzles with only one solution, such as mazes. (DFS can be adapted to find all solutions to a maze by only including nodes on the current path in the visited set.)
 * Maze generation may use a randomized depth-first search.
 * Finding biconnectivity in graphs.
 
 
-source:Wikipedia
+Source: [Wikipedia page for Depth-First Search](https://en.wikipedia.org/wiki/Depth-first_search)
+
+Kotlin playground [link](https://pl.kotl.in/rtPwbotO7)

@@ -1,4 +1,4 @@
-class AdjacencyList<T: Comparable<T>>: Graphable<T> {
+class AdjacencyList<T : Comparable<T>> : Graphable<T> {
 
     var adjacencyMap: MutableMap<Vertex<T>, MutableList<Edge<T>>> = mutableMapOf()
 
@@ -23,10 +23,11 @@ class AdjacencyList<T: Comparable<T>>: Graphable<T> {
         return vertex
     }
 
-    override fun add(type: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double?) = when(type) {
+    override fun add(type: EdgeType, source: Vertex<T>, destination: Vertex<T>, weight: Double?) = when (type) {
         is Directed -> {
             addDirectedEdge(source, destination, weight)
         }
+
         is Undirected -> {
             addUndirectedEdge(Pair(source, destination), weight)
         }
@@ -61,5 +62,4 @@ class AdjacencyList<T: Comparable<T>>: Graphable<T> {
         }
         return result
     }
-
 }
