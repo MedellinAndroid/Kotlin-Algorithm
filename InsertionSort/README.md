@@ -1,6 +1,8 @@
 # Insertion sort
 
-![](https://github.com/MedellinAndroid/Kotlin-Algorithm/blob/master/InsertionSort/InsertionSort_anim.gif)
+<p align="center">
+  <img width="400" src="https://github.com/MedellinAndroid/Kotlin-Algorithm/blob/master/InsertionSort/InsertionSort_anim.gif">
+</p>
 
 Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
 
